@@ -1,5 +1,7 @@
 "use client";
 
+export const dynamic = "force-dynamic";
+
 import { useEffect, useState, useCallback } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { Transaction, CATEGORY_ICONS, MOOD_EMOJIS, CategoryType, MoodType } from "@/types";
@@ -212,10 +214,10 @@ export default function TransactionsPage() {
                                     key={type}
                                     onClick={() => setForm({ ...form, type })}
                                     className={`flex-1 flex items-center justify-center gap-2 py-2.5 rounded-xl text-sm font-medium transition-all ${form.type === type
-                                            ? type === "expense"
-                                                ? "bg-red-400/10 border border-red-400/30 text-red-400"
-                                                : "bg-green-400/10 border border-green-400/30 text-green-400"
-                                            : "bg-white/5 border border-white/10 text-gray-400"
+                                        ? type === "expense"
+                                            ? "bg-red-400/10 border border-red-400/30 text-red-400"
+                                            : "bg-green-400/10 border border-green-400/30 text-green-400"
+                                        : "bg-white/5 border border-white/10 text-gray-400"
                                         }`}
                                 >
                                     {type === "expense" ? <ArrowDownRight className="w-4 h-4" /> : <ArrowUpRight className="w-4 h-4" />}
@@ -272,8 +274,8 @@ export default function TransactionsPage() {
                                         key={m.value}
                                         onClick={() => setForm({ ...form, mood: form.mood === m.value ? null : m.value })}
                                         className={`mood-emoji flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-sm transition-all ${form.mood === m.value
-                                                ? "selected bg-cyan-400/10 border border-cyan-400/30 text-white"
-                                                : "bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10"
+                                            ? "selected bg-cyan-400/10 border border-cyan-400/30 text-white"
+                                            : "bg-white/5 border border-white/10 text-gray-400 hover:bg-white/10"
                                             }`}
                                     >
                                         <span>{m.emoji}</span>
